@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Reveal from "./Reveal";
 
 export default function Story() {
@@ -48,8 +49,32 @@ export default function Story() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="card mt-16 grid grid-cols-1 gap-8 p-8 md:grid-cols-12 md:p-10">
-            <div className="md:col-span-4">
+          <div className="card mt-16 grid grid-cols-1 gap-8 p-8 md:grid-cols-12 md:gap-10 md:p-10">
+            <div className="md:col-span-3">
+              <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-full border border-border bg-surface2 md:mx-0 md:w-full md:max-w-[200px]">
+                <Image
+                  src="/bryan.webp"
+                  alt="Bryan Keepers, Founder of Channel Growth Strategies"
+                  fill
+                  sizes="(min-width: 768px) 200px, 160px"
+                  className="object-cover grayscale contrast-[1.05]"
+                  priority={false}
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 mix-blend-multiply"
+                  style={{
+                    background:
+                      "radial-gradient(120% 80% at 50% 0%, transparent 55%, var(--surface) 100%)",
+                  }}
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-border"
+                />
+              </div>
+            </div>
+            <div className="md:col-span-9">
               <p className="label-mono">Founder</p>
               <p className="mt-4 text-xl font-medium text-fg">Bryan Keepers</p>
               <a
@@ -60,19 +85,19 @@ export default function Story() {
               >
                 linkedin.com/in/bryan-keepers →
               </a>
+              <p className="mt-6 text-[15px] leading-relaxed text-muted">
+                Bryan is a seasoned sales and marketing professional, who brings
+                a track record of excellence in building and managing channel
+                sales teams and marketing programs while with Wasp Barcode
+                Technologies and Opengear. He has also designed and implemented
+                sales and marketing initiatives in various markets including
+                direct market, corporate, retail, value-added reseller,
+                distribution, e-commerce, and enterprise segments, where he has
+                driven revenue growth, established strong and robust
+                partnerships, and has navigated complex sales landscapes to
+                deliver impactful and measurable results.
+              </p>
             </div>
-            <p className="text-[15px] leading-relaxed text-muted md:col-span-8">
-              Bryan is a seasoned sales and marketing professional, who brings a
-              track record of excellence in building and managing channel sales
-              teams and marketing programs while with Wasp Barcode Technologies
-              and Opengear. He has also designed and implemented sales and
-              marketing initiatives in various markets including direct market,
-              corporate, retail, value-added reseller, distribution, e-commerce,
-              and enterprise segments, where he has driven revenue growth,
-              established strong and robust partnerships, and has navigated
-              complex sales landscapes to deliver impactful and measurable
-              results.
-            </p>
           </div>
         </Reveal>
       </div>
