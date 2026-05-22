@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  AnimatePresence,
   motion,
   useMotionValueEvent,
   useScroll,
@@ -63,12 +62,13 @@ export default function System() {
   });
 
   const progressHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const phase = PHASES[active];
 
   const scrollToPhase = (i: number) => {
+    setActive(i);
     const el = trackRef.current;
     if (!el) return;
-    const top = el.offsetTop + (el.offsetHeight - window.innerHeight) * (i / PHASES.length);
+    const scrollable = el.offsetHeight - window.innerHeight;
+    const top = el.offsetTop + scrollable * (i / (PHASES.length - 1));
     window.scrollTo({ top, behavior: "smooth" });
   };
 
@@ -138,33 +138,49 @@ export default function System() {
 
               <div className="md:col-span-8">
                 <div className="card relative overflow-hidden p-8 sm:p-10">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={phase.key}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    >
-                      <p className="label-mono">Phase {phase.n}</p>
-                      <h3 className="mt-4 text-3xl font-medium leading-tight tracking-tight text-fg sm:text-4xl">
-                        {phase.headline}
-                      </h3>
-                      <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted">
-                        {phase.body}
-                      </p>
-                      <ul className="mt-8 grid grid-cols-1 gap-y-3 border-t border-border pt-6 sm:grid-cols-3">
-                        {phase.bullets.map((b) => (
-                          <li
-                            key={b}
-                            className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted"
-                          >
-                            {b}
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  </AnimatePresence>
+                  <div className="grid">
+                    {PHASES.map((p, i) => {
+                      const isActive = active === i;
+                      return (
+                        <motion.div
+                          key={p.key}
+                          aria-hidden={!isActive}
+                          initial={false}
+                          animate={{
+                            opacity: isActive ? 1 : 0,
+                            y: isActive ? 0 : 8,
+                          }}
+                          transition={{
+                            duration: 0.35,
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
+                          style={{
+                            gridColumn: 1,
+                            gridRow: 1,
+                            pointerEvents: isActive ? "auto" : "none",
+                          }}
+                        >
+                          <p className="label-mono">Phase {p.n}</p>
+                          <h3 className="mt-4 text-3xl font-medium leading-tight tracking-tight text-fg sm:text-4xl">
+                            {p.headline}
+                          </h3>
+                          <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted">
+                            {p.body}
+                          </p>
+                          <ul className="mt-8 grid grid-cols-1 gap-y-3 border-t border-border pt-6 sm:grid-cols-3">
+                            {p.bullets.map((b) => (
+                              <li
+                                key={b}
+                                className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted"
+                              >
+                                {b}
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
