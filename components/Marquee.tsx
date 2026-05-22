@@ -1,21 +1,29 @@
 "use client";
 
 const ITEMS = [
-  "20+ years in channel development",
-  "Strategic partnerships designed for mutual growth",
-  "Customized programs, tailored every time",
-  "Book a free discovery call",
+  "Strategic Partnerships",
+  "Channel Development",
+  "Partner Development",
+  "Business Development",
+  "Marketing Strategy",
+  "Contract Negotiations",
+  "Team Management",
+  "Team Building",
+  "Business Process Management",
+  "Global Sales and Product Line Expansion",
+  "SaaS Enterprise Software",
+  "Cloud Solutions",
 ];
 
 export default function Marquee() {
   return (
-    <div className="border-y border-line bg-surface py-3 text-ink">
+    <div className="border-y border-border bg-bg py-3">
       <div className="flex overflow-hidden">
-        <div className="flex shrink-0 animate-[marquee_45s_linear_infinite] items-center gap-12 whitespace-nowrap pl-12 text-[12px] font-medium uppercase tracking-[0.22em]">
+        <div className="flex shrink-0 animate-[marquee_60s_linear_infinite] items-center gap-10 whitespace-nowrap pl-10 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
           {[...ITEMS, ...ITEMS, ...ITEMS].map((t, i) => (
-            <span key={i} className="flex items-center gap-12 text-ink/70">
+            <span key={i} className="flex items-center gap-10">
               {t}
-              <span aria-hidden className="text-copper">✦</span>
+              <span aria-hidden className="text-subtle">/</span>
             </span>
           ))}
         </div>

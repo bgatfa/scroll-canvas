@@ -5,22 +5,27 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["var(--font-display)", "ui-sans-serif", "system-ui"],
-        body: ["var(--font-body)", "ui-sans-serif", "system-ui"],
-        serif: ["var(--font-serif)", "ui-serif", "Georgia"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular"],
       },
       colors: {
-        cream: "#efebe2",
-        surface: "#f6f3eb",
-        ink: "#1a1814",
-        muted: "#6e655a",
-        line: "#d8d2c4",
-        copper: "#a87b50",
-        sage: "#7a8a6f",
-        clay: "#c9b59a",
+        bg: "#0a0a0a",
+        surface: "#111111",
+        surface2: "#171717",
+        border: "rgba(255,255,255,0.08)",
+        borderStrong: "rgba(255,255,255,0.18)",
+        fg: "#ededed",
+        muted: "#888888",
+        subtle: "#525252",
+        accent: "#fafafa",
+      },
+      borderRadius: {
+        card: "10px",
+        btn: "8px",
       },
       letterSpacing: {
         widest2: "0.4em",
+        tightest: "-0.04em",
       },
     },
   },

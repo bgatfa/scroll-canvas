@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 
 export default function Page() {
   return (
-    <main id="top" className="bg-cream text-ink">
+    <main id="top" className="bg-bg text-fg">
       <SmoothScroll />
       <Nav />
       <Hero />

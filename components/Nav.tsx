@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const LINKS = [
   { label: "Services", href: "#services" },
-  { label: "The System", href: "#system" },
+  { label: "System", href: "#system" },
   { label: "Expertise", href: "#expertise" },
   { label: "Story", href: "#story" },
   { label: "Contact", href: "#contact" },
@@ -13,30 +13,37 @@ const LINKS = [
 export default function Nav() {
   const { scrollY } = useScroll();
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 1]);
-  const bg = useTransform(scrollY, [0, 80], ["rgba(239,235,226,0)", "rgba(239,235,226,0.92)"]);
+  const bg = useTransform(
+    scrollY,
+    [0, 80],
+    ["rgba(10,10,10,0)", "rgba(10,10,10,0.7)"]
+  );
 
   return (
     <motion.header
       style={{ backgroundColor: bg }}
-      className="fixed left-0 right-0 top-0 z-40 backdrop-blur-md"
+      className="fixed left-0 right-0 top-0 z-40 backdrop-blur-xl"
     >
       <motion.div
         style={{ opacity: borderOpacity }}
         className="absolute inset-x-0 bottom-0 hairline"
       />
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 sm:px-10">
-        <a href="#top" className="flex items-baseline gap-3">
-          <span className="font-display text-lg font-medium tracking-tight text-ink">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
+        <a href="#top" className="flex items-baseline gap-2">
+          <span className="text-[15px] font-medium tracking-tight text-fg">
+            CGS
+          </span>
+          <span className="hidden font-mono text-[11px] uppercase tracking-widest2 text-subtle sm:inline">
             Channel Growth Strategies
           </span>
         </a>
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[13px] font-medium text-ink/70 transition hover:text-ink"
+              className="font-mono text-[12px] uppercase tracking-[0.12em] text-muted transition hover:text-fg"
             >
               {l.label}
             </a>
@@ -47,12 +54,9 @@ export default function Nav() {
           href="https://calendly.com/bryan-cgs-llc"
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2 rounded-full border border-ink/15 px-5 py-2 text-[13px] font-medium text-ink transition hover:border-ink hover:bg-ink hover:text-cream"
+          className="inline-flex items-center gap-2 rounded-btn bg-fg px-4 py-1.5 text-[13px] font-medium text-bg transition hover:bg-fg/90"
         >
           Book a call
-          <span aria-hidden className="transition group-hover:translate-x-0.5">
-            →
-          </span>
         </a>
       </div>
     </motion.header>

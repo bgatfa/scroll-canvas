@@ -48,78 +48,76 @@ export default function System() {
   const phase = PHASES[active];
 
   return (
-    <section id="system" className="bg-surface py-32 sm:py-40">
+    <section id="system" className="bg-bg py-32 sm:py-40">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <p className="eyebrow text-copper">The System</p>
-              <h2 className="mt-6 max-w-2xl font-display text-4xl font-light leading-[1.05] tracking-tight text-ink sm:text-6xl">
-                How we drive your{" "}
-                <span className="serif-italic text-muted">success.</span>
+              <p className="label-mono">The System</p>
+              <h2 className="mt-6 max-w-2xl text-5xl font-medium leading-[1.05] tracking-tightest text-fg sm:text-6xl">
+                How we drive your success.
               </h2>
             </div>
-            <p className="max-w-sm text-[15px] leading-relaxed text-ink/65">
+            <p className="max-w-sm text-[15px] leading-relaxed text-muted">
               Three phases. The same disciplined sequence, adapted to your
               business — not a template dressed up for one.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-12">
+        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-12">
           <div className="md:col-span-4">
-            <ul className="flex flex-col gap-1 border-y border-line md:border-none">
-              {PHASES.map((p, i) => (
-                <li key={p.key}>
-                  <button
-                    onClick={() => setActive(i)}
-                    aria-pressed={active === i}
-                    className={`group flex w-full items-baseline justify-between border-line py-6 text-left transition-colors md:border-t ${
-                      i === PHASES.length - 1 ? "border-b md:border-b-0" : ""
-                    } ${active === i ? "text-ink" : "text-ink/40 hover:text-ink/70"}`}
-                  >
-                    <span className="flex items-baseline gap-6">
-                      <span className="eyebrow w-8 text-muted">{p.n}</span>
-                      <span className="font-display text-3xl font-light tracking-tight sm:text-4xl">
-                        {p.title}
-                      </span>
-                    </span>
-                    <span
-                      aria-hidden
-                      className={`mr-2 text-xl transition ${
-                        active === i ? "text-copper" : "text-ink/30"
+            <ul className="flex flex-col">
+              {PHASES.map((p, i) => {
+                const isActive = active === i;
+                return (
+                  <li key={p.key}>
+                    <button
+                      onClick={() => setActive(i)}
+                      aria-pressed={isActive}
+                      className={`flex w-full items-baseline justify-between border-l-2 pl-4 py-4 text-left transition-colors ${
+                        isActive
+                          ? "border-fg text-fg"
+                          : "border-border text-muted hover:text-fg"
                       }`}
                     >
-                      {active === i ? "●" : "○"}
-                    </span>
-                  </button>
-                </li>
-              ))}
+                      <span className="flex items-baseline gap-4">
+                        <span className="font-mono text-[11px] uppercase tracking-widest2 text-subtle">
+                          {p.n}
+                        </span>
+                        <span className="font-mono text-[12px] uppercase tracking-[0.16em]">
+                          {p.title}
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           <div className="md:col-span-8">
-            <div className="relative overflow-hidden rounded-2xl border border-line bg-cream p-10 sm:p-14">
+            <div className="card relative overflow-hidden p-8 sm:p-10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={phase.key}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <p className="eyebrow text-copper">Phase {phase.n}</p>
-                  <h3 className="mt-5 font-display text-3xl font-light leading-tight tracking-tight text-ink sm:text-5xl">
+                  <p className="label-mono">Phase {phase.n}</p>
+                  <h3 className="mt-4 text-3xl font-medium leading-tight tracking-tight text-fg sm:text-4xl">
                     {phase.headline}
                   </h3>
-                  <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-ink/75">
+                  <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted">
                     {phase.body}
                   </p>
-                  <ul className="mt-10 grid grid-cols-1 gap-y-3 border-t border-line pt-8 sm:grid-cols-3">
+                  <ul className="mt-8 grid grid-cols-1 gap-y-3 border-t border-border pt-6 sm:grid-cols-3">
                     {phase.bullets.map((b) => (
                       <li
                         key={b}
-                        className="text-[13px] font-medium uppercase tracking-[0.12em] text-ink/70"
+                        className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted"
                       >
                         {b}
                       </li>
