@@ -57,7 +57,7 @@ export default function Story() {
                   alt="Bryan Keepers, Founder of Channel Growth Strategies"
                   fill
                   sizes="(min-width: 768px) 200px, 160px"
-                  className="object-cover grayscale contrast-[1.05]"
+                  className="object-contain grayscale contrast-[1.05]"
                   priority={false}
                 />
                 <div
