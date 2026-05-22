@@ -167,7 +167,7 @@ export default function System() {
                           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted">
                             {p.body}
                           </p>
-                          <ul className="mt-8 grid grid-cols-1 gap-y-3 border-t border-border pt-6 sm:grid-cols-3">
+                          <ul className="mt-8 grid grid-cols-1 gap-x-8 gap-y-3 border-t border-border pt-6 sm:grid-cols-3">
                             {p.bullets.map((b) => (
                               <li
                                 key={b}
