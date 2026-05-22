@@ -52,23 +52,23 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="mb-6 text-xs uppercase tracking-[0.5em] text-accent2"
         >
-          A scroll experiment
+          Channel sales consulting
         </motion.p>
 
         <motion.h1
           style={{ y: titleY, skewY: skew }}
           className="font-display text-[clamp(3rem,10vw,9rem)] font-light leading-[0.95] tracking-tight"
         >
-          <SplitText text="Move" className="block" stagger={0.04} />
+          <SplitText text="Build the" className="block" stagger={0.04} />
           <SplitText
-            text="slowly,"
-                       className="block italic text-accent"
+            text="channel."
+            className="block italic text-accent"
             stagger={0.04}
             delay={0.25}
           />
           <SplitText
-            text="arrive somewhere."
-                       className="block"
+            text="Then scale it."
+            className="block"
             stagger={0.025}
             delay={0.55}
           />
@@ -81,7 +81,8 @@ export default function Hero() {
           transition={{ delay: 1.6, duration: 1 }}
           className="mx-auto mt-10 max-w-xl text-base text-bone/70 sm:text-lg"
         >
-          Scroll. Every section reacts. Nothing waits for a click.
+          We help technology vendors design partner programs that resellers,
+          MSPs, and hyperscalers actually want to sell.
         </motion.p>
       </motion.div>
 

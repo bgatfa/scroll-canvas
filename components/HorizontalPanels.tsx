@@ -4,10 +4,26 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const PANELS = [
-  { n: "I", title: "Drift", body: "Sub-pixel motion that sets the tone." },
-  { n: "II", title: "Pin", body: "Hold the frame. Let scroll be the timeline." },
-  { n: "III", title: "Pan", body: "Vertical scroll, horizontal travel." },
-  { n: "IV", title: "Release", body: "Hand it back to the page." },
+  {
+    n: "I",
+    title: "Strategy",
+    body: "Channel GTM design, partner segmentation, routes-to-market, and the financial model that makes the program defensible to your CFO.",
+  },
+  {
+    n: "II",
+    title: "Enablement",
+    body: "Partner-ready messaging, sales plays, technical certifications, and the onboarding tracks that get a new partner to first deal in 60 days.",
+  },
+  {
+    n: "III",
+    title: "Operations",
+    body: "Deal registration, MDF, rebates, SPIFFs, tiering, and the PRM stack — built so partners get paid fast and your team isn't drowning in tickets.",
+  },
+  {
+    n: "IV",
+    title: "Co-sell",
+    body: "Hyperscaler alignment (AWS, Azure, GCP), marketplace listings, private offers, and the rep-to-rep motions that turn a logo into pipeline.",
+  },
 ];
 
 export default function HorizontalPanels() {
@@ -23,7 +39,7 @@ export default function HorizontalPanels() {
     <section ref={ref} className="relative h-[400vh] bg-ink">
       <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
         <div className="absolute left-8 top-8 z-20 font-mono text-xs uppercase tracking-widest text-bone/40">
-          Pin × Pan
+          Services
         </div>
         <motion.div style={{ x }} className="flex h-[70vh] gap-6 pl-[10vw]">
           {PANELS.map((p, i) => (

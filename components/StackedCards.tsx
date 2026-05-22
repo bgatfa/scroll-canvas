@@ -6,26 +6,26 @@ import { useRef } from "react";
 const CARDS = [
   {
     tag: "01 · Principle",
-    title: "Motion clarifies hierarchy.",
-    body: "When something moves, it tells the eye where to look. Save it for what matters.",
+    title: "Partners are a market, not a megaphone.",
+    body: "If your partner program is just a press release and a logo wall, you don't have a channel — you have a brochure. Treat partners like a segment with P&L, ICP, and a buying journey.",
     hue: 14,
   },
   {
     tag: "02 · Principle",
-    title: "Easing is the message.",
-    body: "Linear feels mechanical. A well-shaped curve carries weight and intent.",
+    title: "Ease beats incentive.",
+    body: "Partners sell what's easy to quote, easy to demo, easy to renew, and easy to get paid for. Margin matters; friction matters more. We obsess over the second.",
     hue: 180,
   },
   {
     tag: "03 · Principle",
-    title: "Restraint reads as confidence.",
-    body: "One bold reveal beats a dozen restless ones. Decide where the silence is.",
+    title: "Co-sell or be sold against.",
+    body: "Your hyperscaler reps and SI partners are quoting somebody this quarter. If it isn't you, it's the competitor who showed up with a private offer and a joint plan.",
     hue: 280,
   },
   {
     tag: "04 · Principle",
-    title: "Scroll is a timeline.",
-    body: "Treat the page like a film strip. The user is the playhead.",
+    title: "Pipeline is the only proof.",
+    body: "Signed partners, certified engineers, MDF spent — none of it matters without sourced and influenced pipeline. We build programs measured the way your board measures the business.",
     hue: 50,
   },
 ];
@@ -89,13 +89,13 @@ export default function StackedCards() {
     <section ref={ref} className="relative bg-ink">
       <div className="mx-auto max-w-6xl px-6 pt-32 text-center">
         <p className="mb-3 text-xs uppercase tracking-[0.5em] text-accent">
-          Chapter II
+          How we think
         </p>
         <h2 className="mx-auto max-w-3xl font-display text-5xl font-light leading-tight sm:text-6xl">
-          Four notes on motion.
+          Four principles for building a channel that holds.
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-bone/60">
-          Each one sticks while you read it, then steps back as the next arrives.
+          We&apos;ve seen the shortcuts. None of them worked. These did.
         </p>
       </div>
 

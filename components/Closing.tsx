@@ -17,25 +17,48 @@ export default function Closing() {
 
   return (
     <section
+      id="contact"
       ref={ref}
-      className="relative flex h-screen items-center justify-center overflow-hidden bg-bone text-ink"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-bone px-6 py-24 text-ink"
     >
-      <motion.div
-        style={{ scale, opacity, filter }}
-        className="text-center"
-      >
+      <motion.div style={{ scale, opacity, filter }} className="text-center">
         <p className="mb-4 text-xs uppercase tracking-[0.5em] text-accent">
-          End of scroll
+          Let&apos;s talk
         </p>
-        <h2 className="font-display text-6xl font-light italic leading-none sm:text-9xl">
-          Thank you for
+        <h2 className="font-display text-5xl font-light italic leading-none sm:text-8xl">
+          Your channel,
           <br />
-          <span className="not-italic">scrolling.</span>
+          <span className="not-italic">engineered.</span>
         </h2>
+
+        <p className="mx-auto mt-8 max-w-xl text-ink/70">
+          Tell us about your product, your direct motion, and where the channel
+          fits. We&apos;ll come back in 48 hours with a one-page diagnostic and
+          a recommendation.
+        </p>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+          <a
+            href="mailto:hello@conduitpartners.co"
+            data-cursor="hover"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3 text-sm font-medium text-bone transition hover:bg-accent hover:text-ink"
+          >
+            hello@conduitpartners.co
+            <span aria-hidden>→</span>
+          </a>
+          <a
+            href="https://cal.com/conduit"
+            data-cursor="hover"
+            className="text-sm uppercase tracking-[0.3em] text-ink/70 underline-offset-8 hover:underline"
+          >
+            Book a 30-min intro
+          </a>
+        </div>
       </motion.div>
 
-      <footer className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.4em] text-ink/50">
-        Built with Next.js & Framer Motion · Deployed on Vercel
+      <footer className="absolute bottom-8 left-1/2 flex w-full max-w-6xl -translate-x-1/2 items-center justify-between px-6 text-[10px] uppercase tracking-[0.4em] text-ink/50">
+        <span>Conduit Partners · Channel sales consulting</span>
+        <span>{new Date().getFullYear()}</span>
       </footer>
     </section>
   );

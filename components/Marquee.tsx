@@ -12,7 +12,18 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 
-const WORDS = ["Motion", "Depth", "Rhythm", "Weight", "Pause", "Drift"];
+const WORDS = [
+  "Channel GTM",
+  "Partner programs",
+  "Co-sell",
+  "Marketplace",
+  "Deal reg",
+  "Enablement",
+  "MDF",
+  "PRM",
+  "Distribution",
+  "Alliances",
+];
 
 function Row({
   baseSpeed,

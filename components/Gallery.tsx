@@ -6,10 +6,30 @@ import Reveal from "./Reveal";
 import TiltCard from "./TiltCard";
 
 const ITEMS = [
-  { tag: "Field 01", title: "Slow morning, fast light", hue: 18 },
-  { tag: "Field 02", title: "Concrete, but blooming", hue: 200 },
-  { tag: "Field 03", title: "Edges sharpen at dusk", hue: 320 },
-  { tag: "Field 04", title: "A room that listens back", hue: 80 },
+  {
+    tag: "Case 01 · Cybersecurity",
+    title: "From direct-led to MSSP-led in 18 months",
+    detail: "Series C security vendor · ARR through partners: 9% → 41%",
+    hue: 18,
+  },
+  {
+    tag: "Case 02 · DevTools",
+    title: "PLG, meet the channel",
+    detail: "Open-source platform · 0 to 60 reseller partners, 3 hyperscaler co-sell motions live",
+    hue: 200,
+  },
+  {
+    tag: "Case 03 · Cloud infrastructure",
+    title: "Marketplace as a primary sales motion",
+    detail: "Infra vendor · $32M closed via AWS & Azure private offers in year one",
+    hue: 320,
+  },
+  {
+    tag: "Case 04 · AI platforms",
+    title: "Channel-ready before Series B",
+    detail: "AI infra startup · Program design, first 12 partner contracts, GTM playbook shipped",
+    hue: 80,
+  },
 ];
 
 export default function Gallery() {
@@ -25,10 +45,10 @@ export default function Gallery() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="mb-3 text-xs uppercase tracking-[0.5em] text-accent">
-            Chapter III
+            Selected work
           </p>
           <h2 className="mb-16 max-w-3xl font-display text-5xl font-light leading-tight sm:text-6xl">
-            Reveals are the punctuation of a scroll.
+            Programs we&apos;ve built, scaled, or fixed.
           </h2>
         </Reveal>
 
@@ -43,23 +63,31 @@ export default function Gallery() {
                       background: `radial-gradient(120% 80% at 30% 20%, hsl(${item.hue}, 80%, 55%) 0%, hsl(${item.hue + 40}, 60%, 18%) 60%, #0a0a0f 100%)`,
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent" />
                   <div
                     className="absolute bottom-0 left-0 right-0 p-6"
                     style={{ transform: "translateZ(40px)" }}
                   >
-                    <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-bone/60">
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-bone/60">
                       {item.tag}
                     </p>
-                    <h3 className="font-display text-2xl font-light">
+                    <h3 className="font-display text-2xl font-light leading-tight">
                       {item.title}
                     </h3>
+                    <p className="mt-2 text-sm text-bone/65">{item.detail}</p>
                   </div>
                 </article>
               </TiltCard>
             </Reveal>
           ))}
         </motion.div>
+
+        <Reveal delay={0.2}>
+          <p className="mt-12 max-w-xl text-sm text-bone/50">
+            Names withheld under NDA. Numbers are real and verifiable in
+            reference calls.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

@@ -4,10 +4,10 @@ import { MotionValue, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const STATS = [
-  { label: "Sections animated", end: 8, suffix: "" },
-  { label: "Scroll-linked values", end: 42, suffix: "" },
-  { label: "Smoothness", end: 99, suffix: "%" },
-  { label: "External assets", end: 0, suffix: "" },
+  { label: "Partner programs designed or rebuilt", end: 60, suffix: "+" },
+  { label: "Average channel ARR lift in 24 months", end: 3, suffix: "×" },
+  { label: "Marketplace & hyperscaler launches", end: 14, suffix: "" },
+  { label: "Years operating in the channel", end: 20, suffix: "+" },
 ];
 
 function Counter({
@@ -47,7 +47,7 @@ export default function Counters() {
           By the numbers
         </p>
         <h2 className="mb-16 max-w-3xl font-display text-5xl font-light leading-tight sm:text-6xl">
-          Numbers that move when you do.
+          Two decades. Sixty programs. One playbook, tailored every time.
         </h2>
 
         <div className="grid grid-cols-2 gap-y-12 sm:grid-cols-4">

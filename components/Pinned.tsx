@@ -5,19 +5,19 @@ import { useRef } from "react";
 
 const STEPS = [
   {
-    eyebrow: "01",
-    title: "It begins.",
-    body: "A single shape, still. The viewport pins. The work happens here.",
+    eyebrow: "Stage 01",
+    title: "Direct-only.",
+    body: "Every dollar lives or dies with your AEs. Coverage is expensive. Geographic and vertical reach is whatever you can hire.",
   },
   {
-    eyebrow: "02",
-    title: "It opens.",
-    body: "Scale tracks scroll. Rotation tracks scroll. Color follows.",
+    eyebrow: "Stage 02",
+    title: "Hybrid.",
+    body: "First partners signed. Rules of engagement drafted. Channel conflict is the loudest meeting on the calendar. Bookings start to lift.",
   },
   {
-    eyebrow: "03",
-    title: "It resolves.",
-    body: "Then the pin releases. The page exhales and continues.",
+    eyebrow: "Stage 03",
+    title: "Partner-led.",
+    body: "Most net-new pipeline is sourced or influenced by partners. Marketplace closes deals while your team sleeps. Comp plans were built for this.",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function Pinned() {
         </div>
 
         <div className="absolute left-8 top-8 font-mono text-xs uppercase tracking-widest text-bone/40">
-          Pinned scene
+          The transformation
         </div>
       </div>
     </section>

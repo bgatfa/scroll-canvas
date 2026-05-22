@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Scroll Canvas — a motion experiment",
+  title: "Conduit Partners — Channel sales consulting for technology companies",
   description:
-    "A scroll-driven web experience. Pinned scenes, parallax depth, and reveals.",
+    "We help technology vendors design, launch, and scale partner programs. Channel GTM, enablement, co-sell, and marketplace strategy.",
 };
 
 export default function RootLayout({
