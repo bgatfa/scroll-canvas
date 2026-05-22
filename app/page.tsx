@@ -1,37 +1,31 @@
-import ScrollProgress from "@/components/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll";
-import Cursor from "@/components/Cursor";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Parallax from "@/components/Parallax";
-import HorizontalPanels from "@/components/HorizontalPanels";
-import Pinned from "@/components/Pinned";
-import StackedCards from "@/components/StackedCards";
 import Marquee from "@/components/Marquee";
-import Gallery from "@/components/Gallery";
-import Counters from "@/components/Counters";
-import Closing from "@/components/Closing";
+import Services from "@/components/Services";
+import System from "@/components/System";
+import Quote from "@/components/Quote";
+import Expertise from "@/components/Expertise";
+import Story from "@/components/Story";
+import Values from "@/components/Values";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Page() {
   return (
-    <main id="top">
+    <main id="top" className="bg-cream text-ink">
       <SmoothScroll />
-      <Cursor />
-      <ScrollProgress />
       <Nav />
       <Hero />
-      <Parallax />
-      <section id="services">
-        <HorizontalPanels />
-      </section>
-      <Pinned />
-      <StackedCards />
       <Marquee />
-      <section id="expertise">
-        <Gallery />
-      </section>
-      <Counters />
-      <Closing />
+      <Services />
+      <System />
+      <Quote />
+      <Expertise />
+      <Story />
+      <Values />
+      <Contact />
+      <Footer />
     </main>
   );
 }

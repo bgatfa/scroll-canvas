@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-export default function Reveal({ children, delay = 0, y = 32, className }: Props) {
+export default function Reveal({ children, delay = 0, y = 24, className }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px -10% 0px" });
 
@@ -19,7 +19,7 @@ export default function Reveal({ children, delay = 0, y = 32, className }: Props
       ref={ref}
       initial={{ opacity: 0, y }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 1.1, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
