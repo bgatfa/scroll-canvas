@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Reveal from "./Reveal";
+import TiltCard from "./TiltCard";
 
 const ITEMS = [
   { tag: "Field 01", title: "Slow morning, fast light", hue: 18 },
@@ -34,23 +35,28 @@ export default function Gallery() {
         <motion.div style={{ y }} className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {ITEMS.map((item, i) => (
             <Reveal key={item.tag} delay={i * 0.08} y={48}>
-              <article className="group relative aspect-[4/3] overflow-hidden rounded-md border border-bone/10">
-                <div
-                  className="absolute inset-0 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                  style={{
-                    background: `radial-gradient(120% 80% at 30% 20%, hsl(${item.hue}, 80%, 55%) 0%, hsl(${item.hue + 40}, 60%, 18%) 60%, #0a0a0f 100%)`,
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-bone/60">
-                    {item.tag}
-                  </p>
-                  <h3 className="font-display text-2xl font-light">
-                    {item.title}
-                  </h3>
-                </div>
-              </article>
+              <TiltCard max={8}>
+                <article className="group relative aspect-[4/3] overflow-hidden rounded-md border border-bone/10">
+                  <div
+                    className="absolute inset-0 transition-transform duration-[1200ms] ease-out"
+                    style={{
+                      background: `radial-gradient(120% 80% at 30% 20%, hsl(${item.hue}, 80%, 55%) 0%, hsl(${item.hue + 40}, 60%, 18%) 60%, #0a0a0f 100%)`,
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
+                  <div
+                    className="absolute bottom-0 left-0 right-0 p-6"
+                    style={{ transform: "translateZ(40px)" }}
+                  >
+                    <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-bone/60">
+                      {item.tag}
+                    </p>
+                    <h3 className="font-display text-2xl font-light">
+                      {item.title}
+                    </h3>
+                  </div>
+                </article>
+              </TiltCard>
             </Reveal>
           ))}
         </motion.div>
