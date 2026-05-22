@@ -3,13 +3,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-const CHIPS = [
-  "Channel Development",
-  "Partner Programs",
-  "Market Analysis",
-  "Growth Strategy",
-];
-
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -23,7 +16,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-bg pt-40 sm:pt-48"
+      className="relative overflow-hidden bg-bg pt-32 sm:pt-40"
     >
       <div
         aria-hidden
@@ -32,20 +25,11 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pb-28 sm:px-10">
         <motion.div style={{ y: titleY, opacity: titleOpacity }}>
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="label-mono"
-          >
-            CGS · Channel Growth Strategies
-          </motion.p>
-
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 max-w-5xl text-[clamp(3rem,9vw,7.5rem)] font-medium leading-[0.95] tracking-tightest text-fg"
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-5xl text-[clamp(3rem,9vw,7.5rem)] font-medium leading-[0.95] tracking-tightest text-fg"
           >
             Transform Your Channel Strategy
           </motion.h1>
@@ -53,7 +37,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-8 max-w-2xl text-lg leading-relaxed text-muted"
           >
             Unlock growth potential with expert channel development and
@@ -64,7 +48,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-10 flex max-w-xl items-center gap-2 rounded-btn border border-border bg-surface px-2 py-2"
         >
           <span className="flex items-center pl-2 text-subtle">
@@ -94,23 +78,6 @@ export default function Hero() {
           >
             Schedule a Discovery Call
           </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          className="mt-6 flex flex-wrap gap-2"
-        >
-          {CHIPS.map((c) => (
-            <a
-              key={c}
-              href="#services"
-              className="rounded-full border border-border bg-surface px-3 py-1 font-mono text-[11px] uppercase tracking-widest2 text-muted transition hover:border-borderStrong hover:text-fg"
-            >
-              {c}
-            </a>
-          ))}
         </motion.div>
       </div>
     </section>
