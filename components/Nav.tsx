@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionTemplate, useScroll, useTransform } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
   { label: "Services", href: "#services" },
@@ -13,11 +14,8 @@ const LINKS = [
 export default function Nav() {
   const { scrollY } = useScroll();
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 1]);
-  const bg = useTransform(
-    scrollY,
-    [0, 80],
-    ["rgba(10,10,10,0)", "rgba(10,10,10,0.7)"]
-  );
+  const navAlpha = useTransform(scrollY, [0, 80], [0, 0.7]);
+  const bg = useMotionTemplate`rgba(var(--nav-bg), ${navAlpha})`;
 
   return (
     <motion.header
@@ -28,7 +26,7 @@ export default function Nav() {
         style={{ opacity: borderOpacity }}
         className="absolute inset-x-0 bottom-0 hairline"
       />
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 sm:px-10">
         <a href="#top" className="flex items-baseline gap-2">
           <span className="text-[15px] font-medium tracking-tight text-fg">
             CGS
@@ -50,14 +48,17 @@ export default function Nav() {
           ))}
         </nav>
 
-        <a
-          href="https://calendly.com/bryan-cgs-llc"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-btn bg-fg px-4 py-1.5 text-[13px] font-medium text-bg transition hover:bg-fg/90"
-        >
-          Book a call
-        </a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="https://calendly.com/bryan-cgs-llc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-btn bg-fg px-4 py-1.5 text-[13px] font-medium text-bg transition hover:bg-fg/90"
+          >
+            Book a call
+          </a>
+        </div>
       </div>
     </motion.header>
   );

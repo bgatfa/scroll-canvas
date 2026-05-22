@@ -1,38 +1,10 @@
 "use client";
 
-import { MotionValue, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 
-function Counter({
-  progress,
-  end,
-  suffix,
-}: {
-  progress: MotionValue<number>;
-  end: number;
-  suffix?: string;
-}) {
-  const value = useTransform(progress, [0.1, 0.7], [0, end]);
-  const [n, setN] = useState(0);
-  useEffect(() => value.on("change", (v) => setN(Math.round(v))), [value]);
-  return (
-    <span>
-      {n}
-      {suffix ?? ""}
-    </span>
-  );
-}
-
 export default function Story() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
   return (
-    <section id="story" ref={ref} className="bg-bg py-32 sm:py-40">
+    <section id="story" className="bg-bg py-32 sm:py-40">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <Reveal>
           <p className="label-mono">About</p>
@@ -42,7 +14,7 @@ export default function Story() {
           <div className="md:col-span-5">
             <Reveal>
               <div className="text-[clamp(6rem,16vw,14rem)] font-medium leading-[0.9] tracking-tightest text-fg">
-                <Counter progress={scrollYProgress} end={20} suffix="+" />
+                20+
               </div>
               <p className="mt-4 max-w-xs font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
                 Years in channel development &amp; market strategy

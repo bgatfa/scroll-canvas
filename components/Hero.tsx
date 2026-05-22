@@ -18,7 +18,7 @@ export default function Hero() {
   });
 
   const titleY = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
 
   return (
     <section
@@ -30,37 +30,36 @@ export default function Hero() {
         className="grid-bg pointer-events-none absolute inset-0 -z-0"
       />
 
-      <motion.div
-        style={{ y: titleY, opacity }}
-        className="relative z-10 mx-auto max-w-7xl px-6 pb-28 sm:px-10"
-      >
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="label-mono"
-        >
-          CGS · Channel Growth Strategies
-        </motion.p>
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pb-28 sm:px-10">
+        <motion.div style={{ y: titleY, opacity: titleOpacity }}>
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="label-mono"
+          >
+            CGS · Channel Growth Strategies
+          </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 max-w-5xl text-[clamp(3rem,9vw,7.5rem)] font-medium leading-[0.95] tracking-tightest text-fg"
-        >
-          Transform Your Channel Strategy
-        </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 max-w-5xl text-[clamp(3rem,9vw,7.5rem)] font-medium leading-[0.95] tracking-tightest text-fg"
+          >
+            Transform Your Channel Strategy
+          </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-8 max-w-2xl text-lg leading-relaxed text-muted"
-        >
-          Unlock growth potential with expert channel development and strategic
-          partnerships.
-        </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-8 max-w-2xl text-lg leading-relaxed text-muted"
+          >
+            Unlock growth potential with expert channel development and
+            strategic partnerships.
+          </motion.p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -113,7 +112,7 @@ export default function Hero() {
             </a>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
