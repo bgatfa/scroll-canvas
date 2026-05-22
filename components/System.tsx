@@ -1,7 +1,13 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { useRef, useState } from "react";
 import Reveal from "./Reveal";
 
 const PHASES = [
@@ -44,12 +50,31 @@ const PHASES = [
 ];
 
 export default function System() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: trackRef,
+    offset: ["start start", "end end"],
+  });
+
   const [active, setActive] = useState(0);
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const next = v >= 0.66 ? 2 : v >= 0.33 ? 1 : 0;
+    setActive((prev) => (prev === next ? prev : next));
+  });
+
+  const progressHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const phase = PHASES[active];
 
+  const scrollToPhase = (i: number) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const top = el.offsetTop + (el.offsetHeight - window.innerHeight) * (i / PHASES.length);
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
   return (
-    <section id="system" className="bg-bg py-32 sm:py-40">
-      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+    <section id="system" className="relative bg-bg">
+      <div className="mx-auto max-w-7xl px-6 pt-32 sm:px-10 sm:pt-40">
         <Reveal>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div>
@@ -64,67 +89,84 @@ export default function System() {
             </p>
           </div>
         </Reveal>
+      </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <ul className="flex flex-col">
-              {PHASES.map((p, i) => {
-                const isActive = active === i;
-                return (
-                  <li key={p.key}>
-                    <button
-                      onClick={() => setActive(i)}
-                      aria-pressed={isActive}
-                      className={`flex w-full items-baseline justify-between border-l-2 pl-4 py-4 text-left transition-colors ${
-                        isActive
-                          ? "border-fg text-fg"
-                          : "border-border text-muted hover:text-fg"
-                      }`}
-                    >
-                      <span className="flex items-baseline gap-4">
-                        <span className="font-mono text-[11px] uppercase tracking-widest2 text-subtle">
-                          {p.n}
-                        </span>
-                        <span className="font-mono text-[12px] uppercase tracking-[0.16em]">
-                          {p.title}
-                        </span>
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <div className="md:col-span-8">
-            <div className="card relative overflow-hidden p-8 sm:p-10">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={phase.key}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <p className="label-mono">Phase {phase.n}</p>
-                  <h3 className="mt-4 text-3xl font-medium leading-tight tracking-tight text-fg sm:text-4xl">
-                    {phase.headline}
-                  </h3>
-                  <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted">
-                    {phase.body}
-                  </p>
-                  <ul className="mt-8 grid grid-cols-1 gap-y-3 border-t border-border pt-6 sm:grid-cols-3">
-                    {phase.bullets.map((b) => (
-                      <li
-                        key={b}
-                        className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted"
-                      >
-                        {b}
-                      </li>
-                    ))}
+      <div ref={trackRef} className="relative h-[260vh] pb-32 sm:pb-40">
+        <div className="sticky top-20 flex h-[calc(100vh-5rem)] items-center">
+          <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
+              <div className="md:col-span-4">
+                <div className="relative">
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-0 h-full w-px bg-border"
+                  />
+                  <motion.span
+                    aria-hidden
+                    style={{ height: progressHeight }}
+                    className="absolute left-0 top-0 w-px bg-fg"
+                  />
+                  <ul className="flex flex-col">
+                    {PHASES.map((p, i) => {
+                      const isActive = active === i;
+                      return (
+                        <li key={p.key}>
+                          <button
+                            onClick={() => scrollToPhase(i)}
+                            aria-pressed={isActive}
+                            className={`flex w-full items-baseline justify-between pl-4 py-4 text-left transition-colors ${
+                              isActive
+                                ? "text-fg"
+                                : "text-muted hover:text-fg"
+                            }`}
+                          >
+                            <span className="flex items-baseline gap-4">
+                              <span className="font-mono text-[11px] uppercase tracking-widest2 text-subtle">
+                                {p.n}
+                              </span>
+                              <span className="font-mono text-[12px] uppercase tracking-[0.16em]">
+                                {p.title}
+                              </span>
+                            </span>
+                          </button>
+                        </li>
+                      );
+                    })}
                   </ul>
-                </motion.div>
-              </AnimatePresence>
+                </div>
+              </div>
+
+              <div className="md:col-span-8">
+                <div className="card relative overflow-hidden p-8 sm:p-10">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={phase.key}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      <p className="label-mono">Phase {phase.n}</p>
+                      <h3 className="mt-4 text-3xl font-medium leading-tight tracking-tight text-fg sm:text-4xl">
+                        {phase.headline}
+                      </h3>
+                      <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted">
+                        {phase.body}
+                      </p>
+                      <ul className="mt-8 grid grid-cols-1 gap-y-3 border-t border-border pt-6 sm:grid-cols-3">
+                        {phase.bullets.map((b) => (
+                          <li
+                            key={b}
+                            className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted"
+                          >
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
             </div>
           </div>
         </div>
