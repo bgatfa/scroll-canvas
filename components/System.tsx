@@ -67,8 +67,10 @@ export default function System() {
     setActive(i);
     const el = trackRef.current;
     if (!el) return;
+    const absoluteTop = el.getBoundingClientRect().top + window.scrollY;
     const scrollable = el.offsetHeight - window.innerHeight;
-    const top = el.offsetTop + scrollable * (i / (PHASES.length - 1));
+    const targetProgress = (i + 0.5) / PHASES.length;
+    const top = absoluteTop + scrollable * targetProgress;
     window.scrollTo({ top, behavior: "smooth" });
   };
 
