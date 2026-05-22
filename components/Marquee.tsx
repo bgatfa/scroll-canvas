@@ -13,16 +13,15 @@ import {
 import { useRef } from "react";
 
 const WORDS = [
-  "Channel GTM",
-  "Partner programs",
-  "Co-sell",
-  "Marketplace",
-  "Deal reg",
-  "Enablement",
-  "MDF",
-  "PRM",
-  "Distribution",
-  "Alliances",
+  "Strategic Partnerships",
+  "Business Development",
+  "Marketing Strategy",
+  "Channel Development",
+  "Partner Programs",
+  "Contract Negotiations",
+  "Business Process Management",
+  "Global Sales",
+  "Product Line Expansion",
 ];
 
 function Row({

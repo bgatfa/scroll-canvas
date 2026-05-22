@@ -27,7 +27,7 @@ export default function Page() {
       <Pinned />
       <StackedCards />
       <Marquee />
-      <section id="work">
+      <section id="expertise">
         <Gallery />
       </section>
       <Counters />

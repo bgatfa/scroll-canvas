@@ -25,7 +25,7 @@ export default function Parallax() {
         style={{ y: back }}
         className="absolute -left-20 top-10 text-[24vw] font-display font-light leading-none text-bone/[0.04]"
       >
-        CHANNEL
+        MISSION
       </motion.div>
 
       <motion.div
@@ -45,15 +45,16 @@ export default function Parallax() {
         className="relative z-10 mx-auto max-w-3xl px-6 text-center"
       >
         <p className="mb-4 text-xs uppercase tracking-[0.5em] text-accent">
-          The thesis
+          Our mission
         </p>
         <h2 className="font-display text-5xl font-light leading-tight sm:text-7xl">
-          Direct sales hits a ceiling. The channel is how you cross it.
+          To become the most trusted channel coaching and training business in
+          the Americas.
         </h2>
         <p className="mt-6 text-bone/60 sm:text-lg">
-          The vendors winning today aren&apos;t the loudest. They&apos;re the
-          easiest to sell, the easiest to co-sell with, and the easiest to be
-          paid by. We engineer that.
+          At CGS, we exist to help businesses achieve success through making
+          critical assessments and adjustments to benefit their culture and
+          bottom line.
         </p>
       </motion.div>
     </section>

@@ -5,27 +5,27 @@ import { useRef } from "react";
 
 const CARDS = [
   {
-    tag: "01 · Principle",
-    title: "Partners are a market, not a megaphone.",
-    body: "If your partner program is just a press release and a logo wall, you don't have a channel — you have a brochure. Treat partners like a segment with P&L, ICP, and a buying journey.",
+    tag: "01 · Value",
+    title: "Honor, respect, authenticity.",
+    body: "We treat our clients and our community with honor, respect, and authenticity. The relationship comes first; the engagement is built on top of it.",
     hue: 14,
   },
   {
-    tag: "02 · Principle",
-    title: "Ease beats incentive.",
-    body: "Partners sell what's easy to quote, easy to demo, easy to renew, and easy to get paid for. Margin matters; friction matters more. We obsess over the second.",
+    tag: "02 · Value",
+    title: "We work hard for our clients.",
+    body: "When we take an engagement, we take it seriously. The bar is helping the client win — not delivering the deck.",
     hue: 180,
   },
   {
-    tag: "03 · Principle",
-    title: "Co-sell or be sold against.",
-    body: "Your hyperscaler reps and SI partners are quoting somebody this quarter. If it isn't you, it's the competitor who showed up with a private offer and a joint plan.",
+    tag: "03 · Value",
+    title: "Serve beyond expectations.",
+    body: "We help the clients and teammates we meet and serve them beyond what is typically expected in a business relationship.",
     hue: 280,
   },
   {
-    tag: "04 · Principle",
-    title: "Pipeline is the only proof.",
-    body: "Signed partners, certified engineers, MDF spent — none of it matters without sourced and influenced pipeline. We build programs measured the way your board measures the business.",
+    tag: "04 · Value",
+    title: "Growth makes the work exciting.",
+    body: "Growth and improvement make life and business exciting and challenging. We bring that energy to every engagement.",
     hue: 50,
   },
 ];
@@ -89,13 +89,13 @@ export default function StackedCards() {
     <section ref={ref} className="relative bg-ink">
       <div className="mx-auto max-w-6xl px-6 pt-32 text-center">
         <p className="mb-3 text-xs uppercase tracking-[0.5em] text-accent">
-          How we think
+          Our values
         </p>
         <h2 className="mx-auto max-w-3xl font-display text-5xl font-light leading-tight sm:text-6xl">
-          Four principles for building a channel that holds.
+          How we show up for the people we work with.
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-bone/60">
-          We&apos;ve seen the shortcuts. None of them worked. These did.
+          The same four things, every engagement.
         </p>
       </div>
 

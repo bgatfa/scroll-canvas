@@ -5,19 +5,19 @@ import { useRef } from "react";
 
 const STEPS = [
   {
-    eyebrow: "Stage 01",
-    title: "Direct-only.",
-    body: "Every dollar lives or dies with your AEs. Coverage is expensive. Geographic and vertical reach is whatever you can hire.",
+    eyebrow: "Phase 01",
+    title: "Assess.",
+    body: "We start with critical assessment — your current channel, partner mix, programs, and the operating model that surrounds them. The honest picture is the only place real progress begins.",
   },
   {
-    eyebrow: "Stage 02",
-    title: "Hybrid.",
-    body: "First partners signed. Rules of engagement drafted. Channel conflict is the loudest meeting on the calendar. Bookings start to lift.",
+    eyebrow: "Phase 02",
+    title: "Adjust.",
+    body: "We make the adjustments that benefit both culture and bottom line — refined programs, sharper segmentation, the right partner tiers, and the enablement that makes selling easy.",
   },
   {
-    eyebrow: "Stage 03",
-    title: "Partner-led.",
-    body: "Most net-new pipeline is sourced or influenced by partners. Marketplace closes deals while your team sleeps. Comp plans were built for this.",
+    eyebrow: "Phase 03",
+    title: "Accelerate.",
+    body: "With the foundation in place we coach and train your team to scale. Channel performance becomes measurable, predictable, and durable.",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function Pinned() {
         </div>
 
         <div className="absolute left-8 top-8 font-mono text-xs uppercase tracking-widest text-bone/40">
-          The transformation
+          How we drive your success
         </div>
       </div>
     </section>

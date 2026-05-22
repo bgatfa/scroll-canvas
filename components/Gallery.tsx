@@ -7,27 +7,27 @@ import TiltCard from "./TiltCard";
 
 const ITEMS = [
   {
-    tag: "Case 01 · Cybersecurity",
-    title: "From direct-led to MSSP-led in 18 months",
-    detail: "Series C security vendor · ARR through partners: 9% → 41%",
+    tag: "Area 01",
+    title: "Strategic Partnerships",
+    detail: "Comprehensive partnership solutions designed for sustainable, mutual growth.",
     hue: 18,
   },
   {
-    tag: "Case 02 · DevTools",
-    title: "PLG, meet the channel",
-    detail: "Open-source platform · 0 to 60 reseller partners, 3 hyperscaler co-sell motions live",
+    tag: "Area 02",
+    title: "Business Development",
+    detail: "Strategic business expansion grounded in data-driven market insights.",
     hue: 200,
   },
   {
-    tag: "Case 03 · Cloud infrastructure",
-    title: "Marketplace as a primary sales motion",
-    detail: "Infra vendor · $32M closed via AWS & Azure private offers in year one",
+    tag: "Area 03",
+    title: "Marketing Strategy",
+    detail: "Customized strategies that align with your objectives and unlock channel growth.",
     hue: 320,
   },
   {
-    tag: "Case 04 · AI platforms",
-    title: "Channel-ready before Series B",
-    detail: "AI infra startup · Program design, first 12 partner contracts, GTM playbook shipped",
+    tag: "Area 04",
+    title: "Global Sales & Product Line Expansion",
+    detail: "Channel development and execution that scale across geographies and product lines.",
     hue: 80,
   },
 ];
@@ -45,10 +45,10 @@ export default function Gallery() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="mb-3 text-xs uppercase tracking-[0.5em] text-accent">
-            Selected work
+            Areas of expertise
           </p>
           <h2 className="mb-16 max-w-3xl font-display text-5xl font-light leading-tight sm:text-6xl">
-            Programs we&apos;ve built, scaled, or fixed.
+            What we work on when we work with you.
           </h2>
         </Reveal>
 
@@ -84,8 +84,7 @@ export default function Gallery() {
 
         <Reveal delay={0.2}>
           <p className="mt-12 max-w-xl text-sm text-bone/50">
-            Names withheld under NDA. Numbers are real and verifiable in
-            reference calls.
+            Industries we&apos;ve worked in include SaaS Enterprise Software.
           </p>
         </Reveal>
       </div>

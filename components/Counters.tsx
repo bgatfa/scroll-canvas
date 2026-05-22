@@ -3,14 +3,7 @@
 import { MotionValue, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-const STATS = [
-  { label: "Partner programs designed or rebuilt", end: 60, suffix: "+" },
-  { label: "Average channel ARR lift in 24 months", end: 3, suffix: "×" },
-  { label: "Marketplace & hyperscaler launches", end: 14, suffix: "" },
-  { label: "Years operating in the channel", end: 20, suffix: "+" },
-];
-
-function Counter({
+function Number({
   progress,
   end,
   suffix,
@@ -39,32 +32,38 @@ export default function Counters() {
 
   return (
     <section
+      id="story"
       ref={ref}
       className="relative overflow-hidden border-y border-bone/10 bg-ink py-32"
     >
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 text-xs uppercase tracking-[0.5em] text-accent">
-          By the numbers
-        </p>
-        <h2 className="mb-16 max-w-3xl font-display text-5xl font-light leading-tight sm:text-6xl">
-          Two decades. Sixty programs. One playbook, tailored every time.
-        </h2>
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 px-6 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <p className="mb-3 text-xs uppercase tracking-[0.5em] text-accent">
+            Our story
+          </p>
+          <div className="font-display text-[clamp(6rem,18vw,16rem)] font-light leading-none">
+            <Number progress={scrollYProgress} end={20} suffix="+" />
+          </div>
+          <p className="mt-2 font-mono text-xs uppercase tracking-widest text-bone/50">
+            Years in channel development
+          </p>
+        </div>
 
-        <div className="grid grid-cols-2 gap-y-12 sm:grid-cols-4">
-          {STATS.map((s) => (
-            <div key={s.label}>
-              <div className="font-display text-5xl font-light leading-none sm:text-7xl">
-                <Counter
-                  progress={scrollYProgress}
-                  end={s.end}
-                  suffix={s.suffix}
-                />
-              </div>
-              <p className="mt-4 max-w-[12rem] text-xs uppercase tracking-widest text-bone/50">
-                {s.label}
-              </p>
-            </div>
-          ))}
+        <div className="space-y-6 text-bone/75 md:col-span-7 md:pt-12">
+          <h2 className="font-display text-4xl font-light leading-tight text-bone sm:text-5xl">
+            A leading consulting firm with over two decades of experience.
+          </h2>
+          <p>
+            CGS brings seasoned expertise across channel development and market
+            strategy. Our team draws on diverse industry backgrounds, so we
+            tailor comprehensive solutions to each client&apos;s unique needs.
+          </p>
+          <p>
+            Founded on principles of innovation and excellence, we&apos;ve
+            helped organizations transform their business models and achieve
+            sustainable growth through strategic partnerships and market
+            expansion.
+          </p>
         </div>
       </div>
     </section>

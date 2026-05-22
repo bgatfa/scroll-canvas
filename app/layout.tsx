@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Conduit Partners — Channel sales consulting for technology companies",
+  title:
+    "Channel Growth Strategies — Channel coaching, partner programs, and market strategy",
   description:
-    "We help technology vendors design, launch, and scale partner programs. Channel GTM, enablement, co-sell, and marketplace strategy.",
+    "CGS helps technology businesses grow through channel development, partner programs, marketing strategy, and market analysis. Over two decades of experience.",
 };
 
 export default function RootLayout({

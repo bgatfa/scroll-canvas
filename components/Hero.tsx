@@ -52,22 +52,22 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="mb-6 text-xs uppercase tracking-[0.5em] text-accent2"
         >
-          Channel sales consulting
+          Channel Growth Strategies
         </motion.p>
 
         <motion.h1
           style={{ y: titleY, skewY: skew }}
           className="font-display text-[clamp(3rem,10vw,9rem)] font-light leading-[0.95] tracking-tight"
         >
-          <SplitText text="Build the" className="block" stagger={0.04} />
+          <SplitText text="Transform" className="block" stagger={0.04} />
           <SplitText
-            text="channel."
+            text="your channel"
             className="block italic text-accent"
             stagger={0.04}
             delay={0.25}
           />
           <SplitText
-            text="Then scale it."
+            text="strategy."
             className="block"
             stagger={0.025}
             delay={0.55}
@@ -81,8 +81,8 @@ export default function Hero() {
           transition={{ delay: 1.6, duration: 1 }}
           className="mx-auto mt-10 max-w-xl text-base text-bone/70 sm:text-lg"
         >
-          We help technology vendors design partner programs that resellers,
-          MSPs, and hyperscalers actually want to sell.
+          Unlock growth potential with expert channel development and strategic
+          partnerships.
         </motion.p>
       </motion.div>
 

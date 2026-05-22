@@ -6,23 +6,23 @@ import { useRef } from "react";
 const PANELS = [
   {
     n: "I",
-    title: "Strategy",
-    body: "Channel GTM design, partner segmentation, routes-to-market, and the financial model that makes the program defensible to your CFO.",
+    title: "Channel Development",
+    body: "We help businesses build and optimize their distribution network — comprehensive strategies for partner recruitment, onboarding, enablement, and management that maximize your market reach.",
   },
   {
     n: "II",
-    title: "Enablement",
-    body: "Partner-ready messaging, sales plays, technical certifications, and the onboarding tracks that get a new partner to first deal in 60 days.",
+    title: "Partner Programs",
+    body: "We design and implement partner programs that drive mutual success: structured frameworks for partner tiers, benefits, and engagement models that foster long-term relationships.",
   },
   {
     n: "III",
-    title: "Operations",
-    body: "Deal registration, MDF, rebates, SPIFFs, tiering, and the PRM stack — built so partners get paid fast and your team isn't drowning in tickets.",
+    title: "Marketing Strategy",
+    body: "We develop customized growth strategies aligned with your business objectives, combining market insights, channel optimization, and partner development to accelerate expansion.",
   },
   {
     n: "IV",
-    title: "Co-sell",
-    body: "Hyperscaler alignment (AWS, Azure, GCP), marketplace listings, private offers, and the rep-to-rep motions that turn a logo into pipeline.",
+    title: "Market Analysis",
+    body: "Through data-driven market analysis we help you understand industry trends, competitor landscapes, and opportunities — so decision-making for strategic growth is informed.",
   },
 ];
 
